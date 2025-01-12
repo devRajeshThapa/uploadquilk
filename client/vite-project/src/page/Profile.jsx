@@ -287,7 +287,7 @@ export default function Profile() {
 
                   <div className="showpostanddelete">
                     <div className="show">
-                      <img src={current.thumbnail} alt="Selected" className="showimage" />
+                      <img src={`${backendurl}/current.thumbnail`} alt="Selected" className="showimage" />
 
                     </div>
                     <div className="delete">
