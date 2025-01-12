@@ -99,13 +99,13 @@ const handleprofile=(e,id)=>{
                       <FontAwesomeIcon icon={faTrash} className="trash" onClick={(e) => { handledeletepost(e, current._id) }} />
                     </div>
                     <div className="thumbnaildiv">
-                      <img src={current.postid.thumbnail} alt="Selected" className="thumbnail" onClick={(e)=>{handlepostinfo(e,current.postid._id)}}  />
+                      <img src={`${backendurl}/${current.postid.thumbnail}`} alt="Selected" className="thumbnail" onClick={(e)=>{handlepostinfo(e,current.postid._id)}}  />
                     </div>
                   <div className="titlediv">
                     <p className="ptitle">{current.postid.title.length>30?current.postid.title.slice(0,34)+"...":current.postid.title}</p>
                   </div>
                   <div className="creatordiv">
-                  <img src={current.postid.createdBy.profile} alt="Selected" className="creatorimage" onClick={(e)=>{handleprofile(e,current.postid.createdBy._id)}} />
+                  <img src={`${backendurl}/${current.postid.createdBy.profile}`} alt="Selected" className="creatorimage" onClick={(e)=>{handleprofile(e,current.postid.createdBy._id)}} />
                   <p className="creatorname" onClick={(e)=>{handleprofile(e,current.postid.createdBy._id)}}>{current.postid.createdBy.name}</p>
                   </div>
 
