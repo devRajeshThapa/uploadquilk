@@ -157,13 +157,13 @@ useEffect(() => {
             ) : (
               <div className="container" key={index} >
               <div className="thumbnaildiv">
-                <img src={`${backendurl}/current.thumbnail`} alt="Selected" className="thumbnail" onClick={(e)=>{handledetail(e,current._id)}} />
+                <img src={`${backendurl}/${current.thumbnail}`} alt="Selected" className="thumbnail" onClick={(e)=>{handledetail(e,current._id)}} />
               </div>
             <div className="titlediv">
               <p className="ptitle">{current.title.length>30?current.title.slice(0,34)+"...":current.title}</p>
             </div>
             <div className="creatordiv">
-            <img src={`${backendurl}/current.createdBy.profile`} alt="Selected" className="creatorimage" onClick={(e)=>{handleprofile(e,current.createdBy._id)}} />
+            <img src={`${backendurl}/${current.createdBy.profile}`} alt="Selected" className="creatorimage" onClick={(e)=>{handleprofile(e,current.createdBy._id)}} />
             <p className="creatorname" onClick={(e)=>{handleprofile(e,current.createdBy._id)}}>{current.createdBy.name}</p>
             </div>
 
