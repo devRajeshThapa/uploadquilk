@@ -160,13 +160,13 @@ export default function Review() {
                 {selectedimage && (
   selectedimage.match(/\.(png|jpe?g|gif|bmp|tiff|webp)$/i) ? (
     <img 
-      src={selectedimage} 
+      src={`${backendurl}/${selectedimage}`} 
       alt="Post" 
       className="bigimagepic" 
     />
   ) : selectedimage.match(/\.(mp4|webm|ogv)$/i) ? (
     <video 
-      src={selectedimage} 
+      src={`${backendurl}/${selectedimage}`} 
       controls 
       muted 
       autoPlay 
@@ -174,7 +174,7 @@ export default function Review() {
     />
   ) : selectedimage.endsWith(".pdf") ? (
     <iframe 
-      src={`https://docs.google.com/viewer?url=${selectedimage}&embedded=true`} 
+      src={`https://docs.google.com/viewer?url=${backendurl}/${selectedimage}&embedded=true`} 
       className="bigimagepic" 
     ></iframe>
   ) : null 
@@ -222,7 +222,7 @@ export default function Review() {
                     return (
                       <img
                         key={index}
-                        src={current}
+                        src={`${backendurl}/${current}`}
                         alt="Image"
                         className="imageprevdata"
                         onClick={(e) => { handleselectedimage(e, current) }}
@@ -231,7 +231,7 @@ export default function Review() {
                   } else if  (current.match(/\.(mp4|webm|ogv)$/i)) {
                     return (
                       <video key={index} autoPlay muted loop className="imageprevdata" onClick={(e) => { handleselectedimage(e, current) }}>
-                        <source src={current} />
+                        <source src={`${backendurl}/${current}`} />
                       </video>
                     );
                   } else if (current.endsWith(".pdf")) {
@@ -244,7 +244,7 @@ export default function Review() {
               })}
           </div>
           <div className="profiledivcontainer" >
-            {infodata && <><img src={infodata.createdBy.profile} alt="" className="profilepicture" onClick={(e)=>{handleprofile(e,infodata.createdBy._id)}} /> <p className="profilename">{infodata.createdBy.name}</p></>}
+            {infodata && <><img src={`${backend}/${infodata.createdBy.profile}`} alt="" className="profilepicture" onClick={(e)=>{handleprofile(e,infodata.createdBy._id)}} /> <p className="profilename">{infodata.createdBy.name}</p></>}
           </div>
           <div className="descriptiondiv">
             {infodata && <div> <p className="descriptiontext">*Description: {infodata.description} * if anyone have any copyright issues contact: thequilk369@gmail.com</p> </div>}
