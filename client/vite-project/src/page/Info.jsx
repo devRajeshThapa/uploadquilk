@@ -110,7 +110,7 @@ const ProfilePage = () => {
       <Navbar/>
       <div className="userdiv">
         <div className="userprofilediv">
-        {user&&(<div><img src={`${backendurl}/user.profile`} alt="" className="imageprofile" /> <p className="usernameclass">{user.name}</p></div>)}
+        {user&&(<div><img src={`${backendurl}/${user.profile}`} alt="" className="imageprofile" /> <p className="usernameclass">{user.name}</p></div>)}
         </div>
 
 
@@ -121,7 +121,7 @@ const ProfilePage = () => {
               return (
                 <div className="container" key={index} >
                       <FontAwesomeIcon icon={faHeart} onClick={(e) => { handlewishlist(e, current._id) }} className="heartinfo"/>
-                      <img src={`${backendurl}/current.thumbnail`} alt="Selected" className="thumbnailpicture" onClick={(e)=>{handlepostinfo(e,current._id)}} />
+                      <img src={`${backendurl}/${current.thumbnail}`} alt="Selected" className="thumbnailpicture" onClick={(e)=>{handlepostinfo(e,current._id)}} />
                       <p className="paragraphtitle">{current.title.length>30?current.title.slice(0,34)+"....":current.title}</p>
                 </div>
               )
