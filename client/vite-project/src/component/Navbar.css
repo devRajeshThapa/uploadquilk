@@ -1,0 +1,295 @@
+.navbar {
+  border: 1px solid green;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 70px;
+  border: none;
+  box-sizing: border-box;
+  background-color: rgb(240,240,240);
+  box-shadow: 5px 5px 15px rgba(1, 1, 1, 0.1);
+  position: sticky;
+  top: 0px;
+  z-index: 9999;
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.link:hover {
+  color: inherit;
+}
+
+.navbar .start {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  border: none;
+}
+
+.start .image {
+  width: 50px;
+  height: 50px;
+  border-radius: 33%;
+  margin: 0 40px; /* Horizontal margins */
+  box-shadow: none;
+  border: none;
+}
+.image:hover{
+  transform: scale(1.05);
+}
+.start .heart {
+  height: 20px;
+  width: 20px;
+  padding: 7px;
+  border-radius: 50%;
+  margin-right: 40px; /* Adjust this dynamically */
+  background-color: rgb(240,240,240);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.start .heart:hover {
+  color: red;
+  transform: scale(1.05);
+}
+
+.middle {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  border: 1px solid black;
+  border: none;
+}
+
+.middle .input {
+  height: 40px;
+  border-radius: 17px 78px;
+  width: 450px; /* Default width */
+  font-style: italic;
+  text-align: center;
+  font-family: cursive;
+  font-size: 15px;
+  background-color: white;
+  font-weight: 500;
+  text-shadow: 10px 10px 10px rgb(91, 83, 83);
+  background-color: rgb(240,240,240);
+  box-shadow: 10px 10px 10px rgb(121, 117, 117);
+  outline: none;
+  border: none;
+}
+
+.input::placeholder {
+  color: black;
+  text-align: center;
+  text-shadow: 10px 10px 10px black;
+}
+.middle .newsdiv{
+  border: 1px solid black;
+  border: none;
+  margin-top: 5px;
+}
+.newsdiv .newimage{
+  height: 39px;
+  width: 39px;
+  border: 1px solid black;
+  border-radius: 50%;
+  border: none;
+  background-color: rgb(240,240,240);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+}
+.middle .searchdiv {
+  height: 42.3px;
+  width: 42px;
+  display: flex;
+  align-items: center;
+  border-radius: 50%;
+  border: none;
+}
+
+.middle .search {
+  height: 20px;
+  width: 20px;
+  padding: 7px;
+  border-radius: 50%;
+  margin-left: 0px;
+  background-color: rgb(240,240,240);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  border: none;
+}
+
+.middle .search:hover {
+  color: red;
+  transform: scale(1.1);
+}
+
+.end {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  border: none;
+}
+
+.end .users,
+.end .user {
+  padding: 7px;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background-color: rgb(240,240,240);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  margin: 0 10px; /* Horizontal margin */
+}
+
+.users:hover,
+.user:hover {
+  color: red;
+  transform: scale(1.05);
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 1200px) {
+  .start .image,
+  .start .heart,
+  .end .users,
+  .end .user {
+    margin: 0 10px; /* Reduce margins for smaller screens */
+  }
+}
+
+@media screen and (min-width:600px) and (max-width: 768px) {
+  .start .image,
+  .start .heart,
+  .end .users,
+  .end .user {
+    margin: 0 10px; 
+  }
+  .middle .input {
+    width: 100%;
+    max-width: 300px; 
+  }
+}
+/* For screens with width less than 600px */
+@media screen and (min-width:400px) and (max-width: 600px) {
+  /* Initially hide the search input field */
+  .middle .input {
+    display: none;
+  }
+
+  /* Initially hide the Home logo, Wishlist, People, and Profile icons when search is clicked */
+  .link.hide {
+    display: none;
+  }
+
+  /* Show input field when search is clicked */
+  .input.show-input {
+    display: block;
+    width: 280px; 
+    border: none;
+  }
+  .middle{
+    display: flex;
+    align-items: center;
+    border: 1px solid red;
+    border: none;
+  }
+.middle .newimage{
+  width: 34px;
+  height: 34px;
+  margin-top: -1.09px;
+  border: none;
+}
+  /* Show the Home logo when clicked */
+  .start .image.show {
+    display: inline-block;
+  }
+
+  /* Hide the search icon when search is clicked */
+  .middle .searchdiv.hide {
+    display: none;
+  }
+
+  /* Ensure the home logo, input, and search icon do not overlap */
+  .start .image,
+  .start .heart {
+    display: inline-block;
+  }
+
+  .middle .newsdiv {
+    display: inline-block;
+  }
+  
+  .middle .search{
+    margin-left: 10px;
+    margin-top: 3px;
+  }
+  /* When the search input is hidden, show the search icon */
+  .middle .searchdiv {
+    border: none;
+    display: inline-block;
+  }
+
+}
+
+@media screen and (min-width:0px) and (max-width: 400px) {
+  /* Initially hide the search input field */
+  .middle .input {
+    display: none;
+  }
+
+  /* Initially hide the Home logo, Wishlist, People, and Profile icons when search is clicked */
+  .link.hide {
+    display: none;
+  }
+
+  /* Show input field when search is clicked */
+  .input.show-input {
+    display: block;
+    width: 100%; 
+    border: none;
+  }
+  .middle{
+    display: flex;
+    align-items: center;
+    border: 1px solid black;
+    border: none;
+  }
+.middle .newimage{
+  width: 34px;
+  height: 34px;
+  margin-top: -1.09px;
+  border: none;
+}
+  /* Show the Home logo when clicked */
+  .start .image.show {
+    display: inline-block;
+  }
+
+  /* Hide the search icon when search is clicked */
+  .middle .searchdiv.hide {
+    display: none;
+  }
+
+  /* Ensure the home logo, input, and search icon do not overlap */
+  .start .image,
+  .start .heart {
+    display: inline-block;
+  }
+
+  .middle .newsdiv {
+    display: inline-block;
+  }
+  
+  .middle .search{
+    margin-left: 10px;
+    margin-top: 3px;
+  }
+  /* When the search input is hidden, show the search icon */
+  .middle .searchdiv {
+    display: inline-block;
+  }
+
+}

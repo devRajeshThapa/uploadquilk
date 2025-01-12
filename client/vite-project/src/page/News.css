@@ -1,0 +1,1059 @@
+.alwaysmain{
+  height: 100vh;
+  overflow: scroll;
+}
+.alwaysmain::-webkit-scrollbar {
+  width: 8px;  
+  display: none;
+}
+
+.alwaysmain::-webkit-scrollbar-track {
+  background-color: rgb(207,204,204);
+  border-radius: 10px;  
+  box-shadow: 10px 10px 10px 10px rgb(228, 223, 223);
+  display: none;
+}
+
+.alwaysmain::-webkit-scrollbar-thumb {
+  background-color: #888;  
+  border-radius: 10px;  
+  height: 15px;
+  display: none;
+}
+
+.alwaysmain::-webkit-scrollbar-thumb:hover {
+  background-color: #555;  
+ 
+}
+.newscontainer{
+  border: 3px solid red;
+  height: 100vh;
+  overflow: scroll;
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+}
+.newscontainer::-webkit-scrollbar {
+  width: 8px;  
+  display: none;
+}
+
+.newscontainer::-webkit-scrollbar-track {
+  background-color: rgb(207,204,204);
+  border-radius: 10px;  
+  box-shadow: 10px 10px 10px 10px rgb(228, 223, 223);
+  display: none;
+}
+
+.newscontainer::-webkit-scrollbar-thumb {
+  background-color: #888;  
+  border-radius: 10px;  
+  height: 15px;
+  display: none;
+}
+
+.newscontainer::-webkit-scrollbar-thumb:hover {
+  background-color: #555;  
+  display: none;
+}
+.closeandadd{
+  border: 1px solid black;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  border-radius: 17px 78px;
+  border: none;
+}
+
+.closeandadd .publish{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  border-radius:17px 78px;
+  margin-left: 21px;
+  cursor: pointer;
+  box-shadow: 10px 10px 10px rgb(121, 117, 117);
+}
+.publish .publishicon{
+   width: 20px;
+   height: 20px;
+   border-radius: 50%;
+   padding: 7px;
+   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+}
+.publish .publishadd{
+  font-family: cursive;
+  font-size: 16px;
+  text-align: center;
+  font-weight: 500;
+  font-style: italic;
+  text-shadow: 10px 10px 10px rgb(121, 117, 117);
+}
+.newscontainer .createsearch{
+  border: 1px solid red;
+  display: flex;
+  margin-top: 2px;
+  justify-content: end;
+  align-items: center;
+  border: none;
+}
+.createsearch .creates{
+  border: 1px solid black;
+  margin-right: 10px;
+  display: flex;
+  width: 150px;
+  border-radius: 17px 78px;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 10px 10px 10px rgb(121, 117, 117);
+  border: none;
+  cursor: pointer;
+}
+.creates .newsadd {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  padding: 7px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  margin-right: 10px;
+  cursor: pointer;
+}
+.creates .add{
+  font-family: cursive;
+  font-size: 16px;
+  text-align: center;
+  font-weight: 500;
+  font-style: italic;
+  text-shadow: 10px 10px 10px rgb(121, 117, 117);
+  color: black;
+}
+.createsearch .newssearch{
+  width: 240px;
+  height: 30px;
+  border: none;
+  outline: none;
+  font-family: cursive;
+  font-size: 16px;
+  text-align: center;
+  font-weight: 500;
+  font-style: italic;
+  text-shadow: 10px 10px 10px black;
+  border-radius: 17px 38px;
+  background-color: transparent;
+  box-shadow: 10px 10px 10px rgb(121, 117, 117);
+  border: none;
+}
+.newssearch::placeholder{
+  color: black;
+  text-align: center;
+}
+.newcollectionadd{
+  display: flex;
+  flex-direction: row;
+  border: 2px solid black;
+  width: 100%;
+  border: none;
+}
+.newcollectionadd .collectionnews{
+  border: 2px solid blue;
+  display: none;
+  border: none;
+}
+ .collectionnews .collectionnewsholder{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow: hidden;
+  overflow-y: scroll;
+  height: 400px;
+  margin-top: 10px;
+ }
+ .collectionnewsholder::-webkit-scrollbar {
+  width: 8px;  
+  display: none;
+}
+
+.collectionnewsholder::-webkit-scrollbar-track {
+  background-color: rgb(207,204,204);
+  border-radius: 10px;  
+  box-shadow: 10px 10px 10px 10px rgb(228, 223, 223);
+  display: none;
+}
+
+.collectionnewsholder::-webkit-scrollbar-thumb {
+  background-color: #888;  
+  border-radius: 10px;  
+  height: 15px;
+  display: none;
+}
+
+.collectionnewsholder::-webkit-scrollbar-thumb:hover {
+  background-color: #555;  
+ 
+}
+.collectionnews .nocontain{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 600px;
+  border: 1px solid black;
+  border: none;
+}
+.nocontain .notitle{
+  font-family: cursive;
+  font-size: large;
+  font-weight: 500;
+  font-style: italic;
+  text-shadow: 10px 10px 10px black;
+}
+ .collectionnewsholder .newsholder{
+  height: 230px;
+  width: 200px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  margin-left: 20px;
+  border: none;
+ }
+ .newsholder .imageanddelete{
+  height: 200px;
+  width: 200px;
+  border: 1px solid black;
+  display: flex;
+  position: relative;
+  border: none;
+ }
+ .imageanddelete .newsimage{
+  width: 200px;
+  height: 200px;
+  border-radius: 7px;
+  border: none;
+ }
+ .imageanddelete .deletenews{
+  right: 9px;
+  padding: 7px;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 10px 10px 10px rgb(121, 117, 117);
+ }
+ .newsholder .newstitlediv{
+  width: 200px;
+  border: 1px solid black;
+  overflow: hidden;
+  border: none;
+  margin-top: 5px;
+ }
+ .newstitlediv .newstitle{
+ font-family: cursive;
+ font-size: 15px;
+ font-style: italic;
+ font-weight: 300;
+ text-align: center;
+ text-shadow: 10px 10px 10px black;
+ }
+.newcollectionadd .posting{
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  width: 50%; 
+  border: none;
+}
+.closeandadd .close{
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 10px 10px 10px rgb(121, 117, 117);
+  border-radius: 17px 78px;
+  border: none;
+  cursor: pointer;
+  width: 150px;
+}
+.close .closeicon{
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  padding: 7px;
+}
+.close .discard{
+  font-family: cursive;
+  font-size: 16px;
+  text-align: center;
+  font-weight: 500;
+  font-style: italic;
+  text-shadow: 10px 10px 10px rgb(121, 117, 117);
+}
+
+.inputholders{
+  display: flex;
+  border: none;
+  height: 410px;
+  align-items: center;
+  width: 600px;
+  border: 3px solid black;
+  border: none;
+}
+.inputpics {
+  border: 1px solid black;
+  width: 200px;
+  height: 400px;
+  overflow-y: auto; 
+  display: flex;
+  flex-direction: column;
+  margin-left: 5px;
+  border: none;
+}
+
+/* Style the scrollbar */
+.inputpics::-webkit-scrollbar {
+  width: 8px;  /* Width of the vertical scrollbar */
+  display: none;
+}
+
+.inputpics::-webkit-scrollbar-track {
+  background-color: rgb(207,204,204);
+  border-radius: 10px;  /* Rounded corners for the track */
+  box-shadow: 10px 10px 10px 10px rgb(228, 223, 223);
+  display: none;
+}
+
+.inputpics::-webkit-scrollbar-thumb {
+  background-color: #888;  /* Color of the draggable scrollbar thumb */
+  border-radius: 10px;  /* Rounded corners for the thumb */
+  height: 15px;
+  display: none;
+}
+
+.inputpics::-webkit-scrollbar-thumb:hover {
+  background-color: #555;  /* Color of the thumb on hover */
+  display: none;
+}
+.inputclasss{
+  display: none;
+}
+.inputselectors{
+  align-items: center;
+  margin-right: 20px;
+  display: flex;
+  border: none;
+  box-shadow: none;
+}
+
+.inputselectors .pluss{
+  padding: 7px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  box-shadow: 10px 10px 10px rgb(121, 117, 117);
+}
+.pluss:hover{
+  color: red;
+  transform: scale(1.1);
+}
+.displayps{
+  font-family: cursive;
+  font-size: large;
+  font-style: italic;
+  font-weight: 500;
+  text-shadow: 10px 10px 10px black;
+}
+.inputpics .divimages{
+  border: 2px solid blue;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 18px;
+  margin-left: 25px;
+  margin-top: 18px;
+  border: none;
+  box-shadow: 10px 10px 10px rgb(121, 117, 117);
+}
+.divimages:hover{
+  transform: scale(1.1);
+}
+.divimagetwos{
+  border: 1px solid black;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 18px;
+  margin-left: 25px;
+  margin-top: 18px;
+  box-shadow: 10px 10px 10px rgb(121, 117, 117);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}
+.divimagetwos:hover{
+  transform: scale(1.1);
+}
+.divimagetwos .uploadparagraphs{
+  font-family: cursive;
+  font-weight: 500;
+  font-style: italic;
+  text-shadow: 10px 10px 10px black;
+}
+.divimages .imageshows{
+  width: 150px;
+  height: 150px;
+  border: 1px solid green;
+  border: none;
+}
+.divimages .imageshowpdfs{
+  height: 140px;
+  width: 140px;
+  border: 1px solid blue;
+  border: none;
+  overflow: hidden;
+
+}
+
+.showresults{
+border: 1px solid black;
+margin-top: 50px;
+outline: none;
+border: none;
+}
+.showresults .showresultonlys{
+  width: 300px;
+height: 300px;
+box-shadow: 10px 10px 10px rgb(121, 117, 117);
+border: 3px solid black;
+border: none;
+}
+.showresultonlys:hover{
+  transform: scale(1.02);
+}
+.showresults .bigshowimages{
+  width: 300px;
+  height: 300px;
+  box-shadow: 10px 10px 10px rgb(121, 117, 117);
+}
+.bigshowimages:hover{
+  transform: scale(1.03);
+}
+.showresults .bigshowvideos{
+  width: 300px;
+  height: 300px;
+  box-shadow: 10px 10px 10px rgb(121, 117, 117);
+}
+.bigshowvideos:hover{
+  transform: scale(1.03);
+}
+.imagefilldivs .detaildivs{
+border: 3px solid black;
+width: 600px;                                    
+height: 350px;
+border: none;
+}
+
+.showresults .titles{
+  border: 1px solid black;
+  display: flex;
+  height: 40px;
+  align-items: center;
+  margin-left: 10px;
+  border: none;
+}
+.titles .titleinputs{
+  border: none;
+  outline: none;
+  border-bottom: 1px solid black;
+  text-align: center;
+  font-family: cursive;
+  font-size: large;
+  font-style: italic;
+  outline: none;
+  font-weight: 500;
+  background-color: transparent;
+  text-shadow: 10px 10px 10px rgb(138, 132, 132);
+}
+.titleinputs::placeholder{
+  color: black;
+}
+.newscontainer .nothingshow{
+  width: 100%;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  font-family: cursive;
+  font-style: italic;
+  font-size: 18px;
+  font-weight:600;
+  text-transform: capitalize;
+  border: none;
+  margin-top: 100px;
+}
+.newscontainer .actualnews{
+  border: 1px solid blue;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  border: none;
+}
+.actualnews .container{
+  width: 600px;
+  height: 600px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  border-radius: 17px;
+  margin-top: 9px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+}
+.container .imageandcreated{
+height: 60px;
+display: flex;
+align-items: center;
+}
+.imageandcreated .imageprofilediv{
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+.imageprofilediv .imageprofile{
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 2s ease-in-out
+}
+.imageprofile:hover{
+  transform: rotate(180deg);
+}
+
+.imageandcreated .createtitle{
+  height: 60px;
+  width: 500px;
+  margin-left: 20px;
+  border: none;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+.createtitle .titlething{
+  font-family: cursive;
+  font-size: 13px;
+  font-style: italic;
+  width: 100%;        
+  text-align: center;         /* Make it take full width of the container */
+  font-weight: 500;
+  text-shadow: 10px 10px 10px rgb(121, 117, 117);
+  
+  /* Prevent text from wrapping to the next line */
+  white-space: wrap;         /* This forces the text to stay on one line */
+  text-wrap: wrap;
+  /* Allow the text to overflow horizontally */
+  overflow: hidden;  
+}
+.container .postingimage{
+  height: 540px;
+  border: 1px solid black;
+  display: flex;
+  position: relative;
+  border: none;
+}
+.postingimage .arrowleft{
+  border: 1px solid black;
+  position: absolute;
+  top: 45%;
+  left: 5px;
+  width: 20px;
+  height: 20px;
+  padding: 7px;
+  border-radius: 50%;
+  border: none;
+  color: gray;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  cursor:grab;
+}
+.postingimage .imagesshown{
+  height: 540px;
+  width: 100%;
+  border-bottom-right-radius: 17px;
+  border-bottom-left-radius: 17px;
+}
+.postingimage .arrowright{
+ position: absolute;
+ border: 1px solid black;
+ top: 45%;
+ right: 5px;
+ width: 20px;
+ height: 20px;
+ padding: 7px;
+ border-radius: 50%;
+ border: none;
+ color: gray;
+ box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+ cursor: grab;
+}
+.arrowleft:hover,.arrowright:hover{
+  transform: scale(1.1);
+  color: red;
+}
+.newscontainer .userprofilediv {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border: none;
+  margin-top: 20px;
+  transition: all 0.2s ease;
+}
+
+.userprofilediv .imageprofile {
+  width: 200px;
+  height: 200px;
+  border-radius: 30px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+}
+
+.userprofilediv .imageprofile:hover {
+  transform: scale(1.03);
+}
+
+.userprofilediv .usernameclass {
+  text-align: center;
+  text-transform: capitalize;
+  font-family: cursive;
+  font-weight: 500;
+  font-style: italic;
+  margin-top: 3px;
+  text-shadow: 10px 10px 10px rgb(121, 117, 117);
+}
+@media screen and (min-width: 1450px) {
+ .newcollectionadd .posting{
+  width: 39%;
+  border: 1px solid red;
+  border: none;
+ }
+ .newcollectionadd .collectionnews{
+  width: 61%;
+  display: inline-block;
+ }
+  }
+  @media screen and (min-width: 1000px) and (max-width: 1450px) {
+   .newcollectionadd .posting{
+      width:60%;
+      border: 1px solid green;
+      border: none;
+    }
+    .newcollectionadd .collectionnews{
+      width: 40%;
+      display: inline-block;
+      border: none;
+    }
+  }
+  @media screen and (min-width: 760px) and (max-width: 1000px) {
+ .newcollectionadd .posting{
+    width: 74.5%;
+    border: 1px solid black;
+    border: none;
+  }
+  .newcollectionadd .collectionnews{
+    width: 25.5%;
+    display: inline-block;
+    
+  }
+  }
+  @media screen  and (max-width: 760px) {
+    .newscontainer::-webkit-scrollbar {
+      width: 8px;  
+      display: none;
+    }
+    
+    .newscontainer::-webkit-scrollbar-track {
+      background-color: rgb(207,204,204);
+      border-radius: 10px;  
+      box-shadow: 10px 10px 10px 10px rgb(228, 223, 223);
+      display: none;
+    }
+    
+    .newscontainer::-webkit-scrollbar-thumb {
+      background-color: #888;  
+      border-radius: 10px;  
+      height: 15px;
+      display: none;
+    }
+    
+    .newscontainer::-webkit-scrollbar-thumb:hover {
+      background-color: #555;  
+     
+    }
+  .newcollectionadd  .posting{
+      width: 100%;
+      margin-top: 10px;
+    }
+    .posting .inputholders{
+      border: 3px solid red;
+      margin-top: -20px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border: none;
+    }
+    .inputholders .showresults{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border: 1px solid green;
+      margin-top: 8px;
+      border: none;
+    }
+    .showresults .bigshowvideos{
+      width: 200px;
+      height: 200px;
+      border-radius: 12px;
+      box-shadow: 10px 10px 10px rgb(157, 152, 152);
+      border: none;
+    }
+    .showresults .bigshowimages{
+      width: 200px;
+      height: 200px;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 10px 10px 10px rgb(157, 152, 152);
+      border: none;
+    }
+    .showresults .showresultonlys{
+      border: 2px solid yellow;
+      width: 200px;
+      height: 200px;
+      margin-top: 0px;
+      border-radius: 12px;
+      border: none;
+      box-shadow: 10px 10px 10px rgb(157, 152, 152);
+    }
+    .inputholders .inputselectors{
+      border: 1px solid red;
+      margin-left: 50px;
+      border: none;
+    }
+    .inputselectors .pluss{
+      box-shadow: 10px 10px 10px rgb(224, 212, 212);
+      border: none;
+    }
+    .inputholders .inputpics{
+      border: 1px solid black;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      border: none;
+    }
+    .inputpics .divimages{
+      width: 90px;
+      height: 90px;
+      border-radius: 17px;
+      box-shadow: none;
+      border: none;
+    }
+    .divimages .imageshows{
+      width: 90px;
+      height: 90px;
+      border: 1px solid yellow;
+      border-radius: 17px;
+      border: none;
+      box-shadow: 10px 10px 10px rgb(157, 152, 152);
+    }
+    .inputpics .managers{
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    
+    }
+    .inputpics .divimagetwos{
+      width: 90px;
+      height: 90px;
+      border-radius: 17px;
+      border: none;
+      box-shadow: 10px 10px 10px rgb(157, 152, 152);
+    }
+    .inputcontainers .inputposts {
+      width: 100%;
+      margin-top: 10px;
+      border: 3px solid blue;
+      border: none;
+      box-shadow: 10px 10px 10px 10px black;
+      box-shadow: none;
+    }
+    .posting .closeandadd{
+      border: 1px solid red;
+      border: none;
+    }
+  }
+  @media screen and (min-width: 760px) and (max-width: 1265px) {
+  .actualnews .container{
+    border: 1px solid black;
+    width: 750px;
+    margin-left: 0px;
+    margin-top: 21px;
+    border: none;
+  }
+  .imageandcreated .createtitle{
+    width: 650px;
+  }
+     }
+ @media screen and (min-width: 0px) and (max-width: 760px) {
+  .actualnews .container{
+    width: 100%;
+    margin-left: 0px;
+    border: 1px solid black;
+    box-sizing: border-box;
+    margin-bottom: 5px;
+    margin-top: 20px;
+    border: none;
+  }
+  .container .imageandcreated{
+    height: 60px;
+    display: flex;
+    align-items: center;
+    }
+    .imageandcreated .imageprofilediv{
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: none;
+    }
+    .imageprofilediv .imageprofile{
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+      transition: transform 2s ease-in-out
+    }
+    .imageprofile:hover{
+      transform: rotate(180deg);
+    }
+    
+    .imageandcreated .createtitle{
+      height: 60px;
+      width: 350px;
+      margin-left: 10px;
+      border: none;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      border: 1px solid black;
+      border: none;
+    }
+    .createtitle .titlething{
+      font-family: cursive;
+      font-size: 12px;
+      font-style: italic;
+      width: 100%;        
+      text-align: center;         /* Make it take full width of the container */
+      font-weight: 500;
+      text-shadow: 10px 10px 10px rgb(121, 117, 117);
+      
+      /* Prevent text from wrapping to the next line */
+      white-space: wrap;         /* This forces the text to stay on one line */
+      text-wrap: wrap;
+      /* Allow the text to overflow horizontally */
+      overflow: hidden;  
+    }
+    .container .postingimage{
+      height: 540px;
+      width: 100%;
+      box-sizing: border-box;
+
+    }
+    .postingimage .imagesshown{
+      height: 540px;
+      width: 100%;
+      box-sizing: border-box;
+      border-bottom-right-radius: 17px;
+      border-bottom-left-radius: 17px;
+    }
+  .newscontainer .createsearch{
+    border: 1px solid red;
+    border: none;
+   }
+   .createsearch .creates{
+    border: 1px solid black;
+    border: none;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+   }
+   .createsearch .newssearch{
+    border: 1px solid red;
+    border: none;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+   }
+   .newscontainer .actualnews{
+    border: 1px solid black;
+    border: none;
+   }
+   .showresults .titles{
+    border: 1px solid black;
+    border: none;
+   }
+   .titles .titleinputs{
+    text-shadow:10px 10px 10px rgb(179, 169, 169);
+   }
+   .actualnews .container{
+    margin-top: 5px;
+   }
+ .posting .closeandadd{
+    border: 1px solid red;
+    border: none;
+   }
+   .closeandadd .close{
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+   }
+   .closeandadd .publish{
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+   }
+       }
+ @media screen and (min-width: 400px) and (max-width: 760px) {
+  .actualnews .container{
+    width: 100%;
+    margin-left: 0px;
+    border: 1px solid black;
+    box-sizing: border-box;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    border: none;
+  }
+  .container .imageandcreated{
+    height: 60px;
+    display: flex;
+    align-items: center;
+    }
+    .imageandcreated .imageprofilediv{
+      width: 10%;
+      border: 1px solid black;
+      border-radius: 1px;
+      border: none;
+    }
+    .imageprofilediv .imageprofile{
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+      transition: transform 2s ease-in-out
+    }
+    .imageprofile:hover{
+      transform: rotate(360deg);
+    }
+    
+    .imageandcreated .createtitle{
+      height: 60px;
+      width: 90%;
+      margin-left: 10px;
+      border: none;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      border: 1px solid black;
+      border: none;
+    }
+    .createtitle .titlething{
+      font-family: cursive;
+      font-size: 15px;
+      font-style: italic;
+      width: 100%;        
+      text-align: center;         /* Make it take full width of the container */
+      font-weight: 500;
+      text-shadow: 10px 10px 10px rgb(121, 117, 117);
+      
+      /* Prevent text from wrapping to the next line */
+      white-space: wrap;         /* This forces the text to stay on one line */
+      text-wrap: wrap;
+      /* Allow the text to overflow horizontally */
+      overflow: hidden;  
+    }
+    .container .postingimage{
+      height: 540px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .postingimage .imagesshown{
+      height: 540px;
+      width: 100%;
+      box-sizing: border-box;
+      border-bottom-right-radius: 17px;
+      border-bottom-left-radius: 17px;
+    }
+       }
+  @media screen and (min-width: 0px) and (max-width: 360px){
+    .createsearch .creates{
+      border: 1px solid black;
+      margin-right: 10px;
+      display: flex;
+      width: 150px;
+      border-radius: 17px 78px;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 10px 10px 10px rgb(121, 117, 117);
+      border: none;
+      cursor: pointer;
+    }
+    .creates .newsadd {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      padding: 7px;
+      box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+      margin-right: 10px;
+      cursor: pointer;
+    }
+    .creates .add{
+      font-family: cursive;
+      font-size: 16px;
+      text-align: center;
+      font-weight: 500;
+      font-style: italic;
+      text-shadow: 10px 10px 10px black;
+    }
+    .createsearch .newssearch{
+      width: 150px;
+      height: 30px;
+      border: none;
+      outline: none;
+      font-family: cursive;
+      font-size: 16px;
+      text-align: center;
+      font-weight: 500;
+      font-style: italic;
+      text-shadow: 10px 10px 10px black;
+      border-radius: 17px 38px;
+      background-color: transparent;
+      box-shadow: 10px 10px 10px rgb(121, 117, 117);
+      border: none;
+    }
+    .newssearch::placeholder{
+      color: black;
+      text-align: center;
+    }
+    .newscontainer .createsearch{
+      border: 1px solid black;
+      border: none;
+    }
+    .createsearch .creates{
+      border: 1px solid black;
+      box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+      border: none;
+    }
+    .creates .add{
+      text-shadow: 10px 10px 10px rgb(145, 138, 138);
+    }
+    .createsearch .newssearch{
+      box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+      border: 1px solid black;
+      text-shadow: 10px 10px 10px rgb(129, 123, 123);
+      border: none;
+    }
+    
+  }
