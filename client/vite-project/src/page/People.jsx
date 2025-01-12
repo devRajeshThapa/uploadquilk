@@ -48,7 +48,7 @@ setpeopledata(people.reverse())
 {filteredPeople.length > 0 ? (peopledata &&filteredPeople.map((current, index) => {
               return (
                 <div className="personcontainer" key={index} >
-                      <img src={current.profile} alt="Selected" className="personimage" onClick={(e)=>{handleprofile(e,current._id)}} />
+                      <img src={`{backendurl}/current.profile`} alt="Selected" className="personimage" onClick={(e)=>{handleprofile(e,current._id)}} />
                       <p className="personname">{current.name}</p>
                 </div>
               )
