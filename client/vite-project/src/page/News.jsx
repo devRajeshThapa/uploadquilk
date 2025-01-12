@@ -39,7 +39,7 @@ export default function News(){
     let number = 0;
     for (let item = 0; item < array1.length; item++) {
       result.push(array1[item]);  // Push the post data item
-      if ((item + 1) % 3 === 0 && number < array2.length) {
+      if ((item + 1) % 10 === 0 && number < array2.length) {
         result.push(array2[number]);  // Insert ads data after every 4th item
         number = (number + 1) % array2.length;
       }
@@ -387,7 +387,7 @@ useEffect(() => {
   ) : current.images[0].endsWith('.pdf') ? (
     <iframe 
       className="newsimage" 
-      src={`${backendurl}/${current.images[0]}`} 
+      src={`https://docs.google.com/viewer?url=${backendurl}/${current.images[0]}&embedded=true`} 
       title={current.title} 
       width="100%" 
       height="500px" 
@@ -434,7 +434,7 @@ useEffect(() => {
                   // Image rendering
                   <a href={`${current.images[currentIndex].links}`} target="_blanks" className="imagesshown">
                     <img
-                    src={`${backendurl}${current.images[currentIndex].imgsrc}`}
+                    src={`${current.images[currentIndex].imgsrc}`}
                     alt="Image with Link"
                     className="imagesshown"
                   />
@@ -453,7 +453,7 @@ useEffect(() => {
                     muted
                     autoPlay
                     className="imagesshown"
-                    src={`${backendurl}${current.images[currentIndex].imgsrc}`}
+                    src={`${current.images[currentIndex].imgsrc}`}
                   ></video>
                   </a>
                   
@@ -487,7 +487,7 @@ useEffect(() => {
                   ></video>
                 ) : current.images[currentIndex].endsWith(".pdf") ? (
                   // PDF rendering as link
-                  <iframe src={`${backendurl}/${current.images[currentIndex]}`} frameborder="0" className="imagesshown"></iframe>
+                  <iframe src={`https://docs.google.com/viewer?url=${backendurl}/${current.images[currentIndex]}&embedded=true`} frameborder="0" className="imagesshown"></iframe>
                 ) : null}
               </>
             )}
@@ -522,7 +522,7 @@ useEffect(() => {
                   // Image rendering
                   <a href={`${current.images[currentIndex].links}`} target="_blanks" className="imagesshown">
                     <img
-                    src={`${backendurl}${current.images[currentIndex].imgsrc}`}
+                    src={`${current.images[currentIndex].imgsrc}`}
                     alt="Image with Link"
                     className="imagesshown"
                   />
@@ -541,7 +541,7 @@ useEffect(() => {
                     muted
                     autoPlay
                     className="imagesshown"
-                    src={`${backendurl}${current.images[currentIndex].imgsrc}`}
+                    src={`${current.images[currentIndex].imgsrc}`}
                   ></video>
                   </a>
                   
@@ -575,7 +575,7 @@ useEffect(() => {
                   ></video>
                 ) : current.images[currentIndex].endsWith(".pdf") ? (
                   // PDF rendering as link
-                  <iframe src={`${backendurl}/${current.images[currentIndex]}`} frameborder="0" className="imagesshown"></iframe>
+                  <iframe src={`https://docs.google.com/viewer?url=${backendurl}/${current.images[currentIndex]}&embedded=true`} frameborder="0" className="imagesshown"></iframe>
                 ) : null}
               </>
             )}
