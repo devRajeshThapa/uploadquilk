@@ -124,7 +124,7 @@ const handlePrevImage = (e, postId, imagesLength) => {
     <Navbar/>
     <div className="newscontainer" onScroll={handleScroll}>
        <div className="userprofilediv">
-        {user&&(<div><img src={`${backendurl}/user.profile`} alt="" className="imageprofile" /> <p className="usernameclass">{user.name}</p></div>)}
+        {user&&(<div><img src={`${backendurl}/${user.profile}`} alt="" className="imageprofile" /> <p className="usernameclass">{user.name}</p></div>)}
         </div>
          
             {updateddata.length>0?(<div className="actualnews">
@@ -134,7 +134,7 @@ const handlePrevImage = (e, postId, imagesLength) => {
               <div className="container" key={index}>
                 <div className="imageandcreated">
                   <div className="imageprofilediv">
-                      <img src={`${backendurl}/current.createdBy.profile`} alt="" className="imageprofile"/>
+                      <img src={`${backendurl}/${current.createdBy.profile}`} alt="" className="imageprofile"/>
                   </div>
                   <div className="createtitle">
                            <p className="titlething">{current.title}---{current.createdBy.name}</p>
@@ -188,7 +188,7 @@ const handlePrevImage = (e, postId, imagesLength) => {
                 current.images[currentIndex].endsWith(".webp")  ? (
                   // Image rendering
                   <img
-                    src={`${backendurl}/current.images[currentIndex]`}
+                    src={`${backendurl}/${current.images[currentIndex]}`}
                     alt="Image"
                     className="imagesshown"
                   />
@@ -202,7 +202,7 @@ const handlePrevImage = (e, postId, imagesLength) => {
                   <video
                     controls
                     className="imagesshown"
-                    src={`${backendurl}/current.images[currentIndex]`}
+                    src={`${backendurl}/${current.images[currentIndex]}`}
                   ></video>
                 ) : current.images[currentIndex].endsWith(".pdf") ? (
                   // PDF rendering as link
