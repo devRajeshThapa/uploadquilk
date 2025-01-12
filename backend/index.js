@@ -170,13 +170,15 @@ app.post("/upload/file/signup", profilemiddleware, async (req, res) => {
     if (existingUserByemail) {
       return res.status(400).json({ message: "Email already exists" });
     }
-    const profileimage = req.files.profile[0].location;
+
+    const profileimage = req.files.profile[0].filename;
+   
     const userentry = new usermodel({
       name,
       email,
       education,
       password,
-      profile:profileimage,
+      profile: `upload/${profileimage}`,
     });
 
     await userentry.save();
@@ -276,11 +278,12 @@ app.post("/upload/file", uploadmiddleware, async (req, res) => {
   const { title, description } = req.body;
   const { file, thumbnail } = req.files;
 
-  const thumbnailImage = thumbnail[0].location;
+  const thumbnailImage = thumbnail[0].filename;
+ 
   const fileImages = file.map((current) => {
-    return `${current.location}`;
+    return `upload/${current.filename}`;
   });
-
+ 
 
   // Extract the userId from the JWT token sent in the headers
   const token = req.headers["authorization"]?.split(" ")[1];
@@ -290,14 +293,14 @@ app.post("/upload/file", uploadmiddleware, async (req, res) => {
 
   try {
     // Verify the token and get the decoded userId
-    const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
+    const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY || "yourSecretKey");
     const userId = decoded.userId;
 
     // Create a new post with the createdBy field set to the user's ID
     const postEntry = new postmodel({
       title,
       description,
-      thumbnail: thumbnailImage,
+      thumbnail: `upload/${thumbnailImage}`,
       images: fileImages,
       createdBy: userId,  // This should be a valid user ID
     });
@@ -323,8 +326,9 @@ app.post("/upload/file/news",newsmiddleware,async (req, res) => {
   const { title } = req.body;
   const {newsimage} = req.files;
   const fileImages = newsimage.map((current) => {
-    return `${current.location}`;
+    return `upload/${current.filename}`;
   });
+ 
 
   // Extract the userId from the JWT token sent in the headers
   const token = req.headers["authorization"]?.split(" ")[1];
@@ -334,7 +338,7 @@ app.post("/upload/file/news",newsmiddleware,async (req, res) => {
 
   try {
     // Verify the token and get the decoded userId
-    const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
+    const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY || "yourSecretKey");
     const userId = decoded.userId;
 
     // Create a new post with the createdBy field set to the user's ID
