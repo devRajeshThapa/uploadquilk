@@ -53,7 +53,7 @@ export default function Profile() {
         // Get the total file size by summing up the size of all files
         const newTotalSize = image.reduce((acc, currentImage) => acc + currentImage.file.size, 0) + file.size;
 
-        const MAX_SIZE = 10 * 1024 * 1024;  // 20 MB in bytes
+        const MAX_SIZE = 15 * 1024 * 1024;  // 20 MB in bytes
 
         // If the total size exceeds 300MB, alert the user and stop further uploads
         if (newTotalSize > MAX_SIZE) {
