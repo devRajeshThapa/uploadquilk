@@ -7,7 +7,20 @@ import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 import dotenv from "dotenv"
 import validator from 'validator';
+import fs from 'fs';
+import https from "https";
 const app = express();
+
+// Load SSL Certificates
+const options = {
+        key: fs.readFileSync('./private.key'),
+        cert: fs.readFileSync('./server.crt') };
+
+// Set up the HTTPS server
+https.createServer(options, app).listen(5000, () => {
+        console.log('HTTPS server running on port 5000');
+});
+
 dotenv.config()
 app.use(cors({
   origin: '*', // Adjust to your frontend's origin if needed
@@ -52,12 +65,12 @@ const homeads=[
     required: true,
   },
   images: {
-    type: [String],  
-    required: true,  
+    type: [String],
+    required: true,
   },
   createdBy: {
-    type: mongoose.Schema.Types.ObjectId,  
-    ref: 'user',  
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'user',
     required: true,
   },
 }, { timestamps: true });
@@ -73,14 +86,14 @@ const newmodel=mongoose.model("news",newSchema);
   },
   thumbnail: {
     type: String,
-    required: true,  
+    required: true,
   },
   images: {
-    type: [String],  
-    required: true,  
+    type: [String],
+    required: true,
   },createdBy: {
-    type: mongoose.Schema.Types.ObjectId,  
-    ref: 'user',  
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'user',
     required: true,
   },
 }, { timestamps: true });
@@ -140,7 +153,7 @@ const wishlistmodel=mongoose.model("wishlist",wishlistSchema)
 // Multer Storage Configuration for S3
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, '../../upload');
+    cb(null, 'upload');
   },
   filename: (req, file, cb) => {
     cb(null, Date.now() + path.extname(file.originalname));
@@ -172,7 +185,7 @@ app.post("/upload/file/signup", profilemiddleware, async (req, res) => {
     }
 
     const profileimage = req.files.profile[0].filename;
-   
+
     const userentry = new usermodel({
       name,
       email,
@@ -200,7 +213,7 @@ app.get("/upload/file/people/:id", async (req, res) => {
   const id = req.params.id;
   try {
     const userdata = await usermodel.findById(id);
-    
+
     // Check if user exists
     if (!userdata) {
       return res.status(404).json({ message: "User doesn't exist" }); // Return here to stop further execution
@@ -244,7 +257,7 @@ app.post("/upload/file/login", async (req, res) => {
 
 app.post("/upload/file/verifytoken", async (req, res) => {
   const token = req.headers["authorization"]?.split(" ")[1];  // Extract token from header
-  
+
   if (!token) {
     return res.status(403).json({ message: "Token is required" });  // Token is missing
   }
@@ -279,11 +292,11 @@ app.post("/upload/file", uploadmiddleware, async (req, res) => {
   const { file, thumbnail } = req.files;
 
   const thumbnailImage = thumbnail[0].filename;
- 
+
   const fileImages = file.map((current) => {
     return `upload/${current.filename}`;
   });
- 
+
 
   // Extract the userId from the JWT token sent in the headers
   const token = req.headers["authorization"]?.split(" ")[1];
@@ -304,15 +317,15 @@ app.post("/upload/file", uploadmiddleware, async (req, res) => {
       images: fileImages,
       createdBy: userId,  // This should be a valid user ID
     });
-    
+
     // Check if the user exists before saving
     const userExist = await usermodel.findById(userId);
     if (!userExist) {
       return res.status(400).json({ message: "User not found for the given post" });
     }
-    
+
     const postSave = await postEntry.save();
-    
+
 
     res.json({
       data: postSave.toObject(),
@@ -328,7 +341,7 @@ app.post("/upload/file/news",newsmiddleware,async (req, res) => {
   const fileImages = newsimage.map((current) => {
     return `upload/${current.filename}`;
   });
- 
+
 
   // Extract the userId from the JWT token sent in the headers
   const token = req.headers["authorization"]?.split(" ")[1];
@@ -347,15 +360,15 @@ app.post("/upload/file/news",newsmiddleware,async (req, res) => {
       images: fileImages,
       createdBy: userId,  // This should be a valid user ID
     });
-    
+
     // Check if the user exists before saving
     const userExist = await usermodel.findById(userId);
     if (!userExist) {
       return res.status(400).json({ message: "User not found for the given post" });
     }
-    
+
     const postSave = await postEntry.save();
-    
+
 
     res.json({
       data: postSave.toObject(),
@@ -367,9 +380,9 @@ app.post("/upload/file/news",newsmiddleware,async (req, res) => {
 });
 app.post("/upload/file/wishlist", async (req, res) => {
   const { postid } = req.body;
-  
+
   const token = req.headers["authorization"]?.split(" ")[1];
-  
+
   if (!token) {
     return res.status(403).json({ message: "Token is required" });
   }
@@ -427,7 +440,7 @@ app.get("/upload/file/wishlist", async (req, res) => {
         select: 'name profile' // Select only the name and profile fields from user
       }
     });
-   
+
        // Populate the creator's name and profile
 
     // Return the populated wishlist items
@@ -442,15 +455,15 @@ app.get("/upload/file/people/profile/:id", async (req, res) => {
   const id = req.params.id;
 
   try {
-   
+
 
     const posts = await postmodel
       .find({ createdBy: id })
       .populate("createdBy", "name profile"); // Populate user info
 
-    
 
-    res.status(200).json(posts); 
+
+    res.status(200).json(posts);
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "An error occurred while fetching posts" });
@@ -468,9 +481,9 @@ app.get("/upload/file/profile/createdby", async (req, res) => {
       .find({ createdBy: userId})
       .populate("createdBy", "name profile"); // Populate user info
 
-    
 
-    res.status(200).json(posts); 
+
+    res.status(200).json(posts);
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "An error occurred while fetching posts" });
@@ -488,9 +501,9 @@ app.get("/upload/file/news/createdby", async (req, res) => {
       .find({ createdBy: userId})
       .populate("createdBy", "name profile"); // Populate user info
 
-    
 
-    res.status(200).json(posts); 
+
+    res.status(200).json(posts);
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "An error occurred while fetching posts" });
@@ -523,7 +536,7 @@ app.get("/upload/file", async (req, res) => {
   try {
     // Fetch posts and populate the createdBy field with user data
     const data = await postmodel.find({}).populate('createdBy', 'name profile');  // Populate 'name' and 'profile' fields from the user model
-    
+
     res.json({
       datas: data,
     });
@@ -536,7 +549,7 @@ app.get("/upload/file/news", async (req, res) => {
   try {
     // Fetch posts and populate the createdBy field with user data
     const data = await newmodel.find({}).populate('createdBy', 'name profile');  // Populate 'name' and 'profile' fields from the user model
-    
+
     res.json({
       datas: data,
     });
@@ -548,8 +561,8 @@ app.get("/upload/file/news", async (req, res) => {
 app.get("/upload/file/news/bit", async (req, res) => {
   try {
     // Default page is 1 and limit is 15
-    const page = parseInt(req.query.page) || 1;  
-    const limit = parseInt(req.query.limit) || 9;  
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 9;
     const skip = (page - 1) * limit;
 
     // Fetch paginated posts and populate the 'createdBy' field with 'name' and 'profile'
@@ -558,7 +571,7 @@ app.get("/upload/file/news/bit", async (req, res) => {
       .limit(limit)
       .sort({ createdAt: -1 })  // Limit the number of posts fetched (15 in this case)
       .populate('createdBy', 'name profile')  // Populate creator data
-  
+
 
     // Send the data back to the client
     res.json({
@@ -574,8 +587,8 @@ app.get("/upload/file/news/bit", async (req, res) => {
 app.get("/upload/file/home", async (req, res) => {
   try {
     // Default page is 1 and limit is 15
-    const page = parseInt(req.query.page) || 1;  
-    const limit = parseInt(req.query.limit) || 25;  
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 25;
     const skip = (page - 1) * limit;
 
     // Fetch paginated posts and populate the 'createdBy' field with 'name' and 'profile'
@@ -606,20 +619,20 @@ app.delete("/upload/file/:id", async (req, res) => {
   const postId = req.params.id;
 
   try {
-   
+
     const post = await postmodel.findById(postId);
 
     if (!post) {
-      
+
       return res.status(404).json({ error: "Post not found" });
     }
 
-  
+
     await postmodel.findByIdAndDelete(postId);
     const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
 const userId = decoded.userId;
 
-   
+
     const remainingPosts = await postmodel.find({createdBy:userId}).populate("createdBy","name profile");
     res.json({  remainingPosts });
 
@@ -636,20 +649,20 @@ app.delete("/upload/file/news/:id", async (req, res) => {
   const postId = req.params.id;
 
   try {
-   
+
     const post = await newmodel.findById(postId);
 
     if (!post) {
-      
+
       return res.status(404).json({ error: "Post not found" });
     }
 
-  
+
     await newmodel.findByIdAndDelete(postId);
     const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
 const userId = decoded.userId;
 
-   
+
     const remainingPosts = await newmodel.find({createdBy:userId}).populate("createdBy","name profile");
     res.json({  remainingPosts });
 
@@ -664,7 +677,7 @@ app.delete("/upload/file/wishlist/:id",async(req,res)=>{
     return res.status(403).json({ message: "Token is required" });
   }
   const{id}=req.params;
- 
+
   try{
 const postid= await wishlistmodel.findById(id);
 if(!postid){
@@ -719,6 +732,3 @@ app.get("/otherads",async(req,res)=>{
   res.json({otherads:otherads})
 })
 app.use("/upload",express.static("upload"))
-app.listen(port,async()=>{
-  console.log(`server is running in ${port}`)
-})
