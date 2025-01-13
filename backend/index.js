@@ -13,8 +13,8 @@ const app = express();
 
 // Load SSL Certificates
 const options = {
-        key: fs.readFileSync('./private.key'),
-        cert: fs.readFileSync('./server.crt') };
+        key: fs.readFileSync('./ssl/private.key'),
+        cert: fs.readFileSync('./ssl/server.crt') };
 
 // Set up the HTTPS server
 https.createServer(options, app).listen(5000, () => {
