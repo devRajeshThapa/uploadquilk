@@ -140,7 +140,7 @@ const wishlistmodel=mongoose.model("wishlist",wishlistSchema)
 // Multer Storage Configuration for S3
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, 'upload');
+    cb(null, '../../upload');
   },
   filename: (req, file, cb) => {
     cb(null, Date.now() + path.extname(file.originalname));
