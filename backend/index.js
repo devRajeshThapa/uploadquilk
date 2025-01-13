@@ -7,23 +7,10 @@ import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 import dotenv from "dotenv"
 import validator from 'validator';
-import fs from 'fs';
-import https from "https";
 const app = express();
-
-// Load SSL Certificates
-const options = {
-        key: fs.readFileSync('./ssl/private.key'),
-        cert: fs.readFileSync('./ssl/server.crt') };
-
-// Set up the HTTPS server
-https.createServer(options, app).listen(5000, () => {
-        console.log('HTTPS server running on port 5000');
-});
-
 dotenv.config()
 app.use(cors({
-  origin: '*', // Adjust to your frontend's origin if needed
+  origin: 'http://thequilk.com', // Adjust to your frontend's origin if needed
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
 }));
 app.use(express.urlencoded({extended:false}));
@@ -732,3 +719,7 @@ app.get("/otherads",async(req,res)=>{
   res.json({otherads:otherads})
 })
 app.use("/upload",express.static("upload"))
+
+app.listen(5000, ()=>{
+        console.log("Server started at PORT 5000");
+});
