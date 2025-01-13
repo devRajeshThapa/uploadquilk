@@ -244,7 +244,7 @@ export default function Review() {
               })}
           </div>
           <div className="profiledivcontainer" >
-            {infodata && <><img src={`${backend}/${infodata.createdBy.profile}`} alt="" className="profilepicture" onClick={(e)=>{handleprofile(e,infodata.createdBy._id)}} /> <p className="profilename">{infodata.createdBy.name}</p></>}
+            {infodata && <><img src={`${backendurl}/${infodata.createdBy.profile}`} alt="" className="profilepicture" onClick={(e)=>{handleprofile(e,infodata.createdBy._id)}} /> <p className="profilename">{infodata.createdBy.name}</p></>}
           </div>
           <div className="descriptiondiv">
             {infodata && <div> <p className="descriptiontext">*Description: {infodata.description} * if anyone have any copyright issues contact: thequilk369@gmail.com</p> </div>}
